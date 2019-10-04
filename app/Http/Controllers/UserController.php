@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Resources\UserCollectionResource;
 use App\Http\Resources\UserResource;
 use App\Services\UserService;
+use App\Types\ListCriteria;
+use App\Types\SearchCriteria;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -47,10 +49,11 @@ class UserController extends Controller
 
     /**
      * @param Request $request
+     * @return UserResource
      */
     public function create(Request $request)
     {
-
+        return new UserResource($this->userService->create($request->all()));
     }
 
     /**

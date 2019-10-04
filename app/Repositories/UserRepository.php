@@ -40,9 +40,9 @@ class UserRepository implements UserRepositoryInterface
      * @param array $user
      * @return User
      */
-    public function create(array $user): User
+    public function create(array $user)
     {
-        //
+        return User::create($user);
     }
 
     /**

@@ -4,6 +4,8 @@ namespace App\Services;
 
 use App\Models\User;
 use App\Repositories\UserRepositoryInterface;
+use App\Types\ListCriteria;
+use App\Types\SearchCriteria;
 
 class UserService implements UserServiceInterface
 {
@@ -47,5 +49,14 @@ class UserService implements UserServiceInterface
     public function deleteById(int $id)
     {
         return $this->userRepository->delete($id);
+    }
+
+    /**
+     * @param array $user
+     * @return User
+     */
+    public function create(array $user)
+    {
+        return $this->userRepository->create($user);
     }
 }
