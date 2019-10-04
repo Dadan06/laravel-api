@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Role;
 use App\Repositories\RoleRepositoryInterface;
 use App\Types\ListCriteria;
 use App\Types\SearchCriteria;
@@ -56,5 +57,14 @@ class RoleService implements RoleServiceInterface
     public function deleteById(int $id)
     {
         return $this->roleRepository->delete($id);
+    }
+
+    /**
+     * @param array $role
+     * @return Role
+     */
+    public function create(array $role)
+    {
+        return $this->roleRepository->create($role);
     }
 }

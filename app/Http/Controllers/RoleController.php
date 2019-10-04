@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\RoleCollectionResource;
 use App\Http\Resources\RoleResource;
-use App\Models\Response;
 use App\Services\RoleServiceInterface;
 use App\Types\ListCriteria;
 use App\Types\SearchCriteria;
-use App\Utils\ResponseUtil;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -57,9 +55,13 @@ class RoleController extends Controller
         return new RoleCollectionResource($this->roleService->getAll());
     }
 
-    public function create()
+    /**
+     * @param Request $request
+     * @return RoleResource
+     */
+    public function create(Request $request)
     {
-        //
+        return new RoleResource($this->roleService->create($request->all()));
     }
 
     /**

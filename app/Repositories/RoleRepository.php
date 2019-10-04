@@ -49,18 +49,8 @@ class RoleRepository implements RoleRepositoryInterface
      * @param array $role
      * @return Role
      */
-    public function create(array $role): Role
+    public function create(array $role)
     {
-        //
-    }
-
-    /**
-     * @param int $id
-     * @param array $newData
-     * @return Role
-     */
-    public function update(int $id, array $newData): Role
-    {
-        //
+        return Role::create($role);
     }
 }
